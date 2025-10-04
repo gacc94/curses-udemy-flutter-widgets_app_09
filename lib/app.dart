@@ -10,7 +10,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp.router(
       routerConfig: router,
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.theme(selectedColor: 7, centerTitle: true),
+      theme: AppTheme.theme(selectedColor: 10, centerTitle: true),
       title: 'Flutter App',
     );
   }

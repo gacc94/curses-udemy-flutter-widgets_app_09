@@ -11,6 +11,7 @@ const List<Color> colorList = [
   Colors.cyan,
   Colors.black,
   Colors.white,
+  Colors.teal,
 ];
 
 class AppTheme {
