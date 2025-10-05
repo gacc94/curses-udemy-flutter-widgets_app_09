@@ -40,6 +40,12 @@ final menuItems = [
     subTitle: 'Snackbar',
   ),
   MenuItem(
+    title: 'Animated Container',
+    icon: Icons.animation_outlined,
+    link: '/animated',
+    subTitle: 'Animated Container',
+  ),
+  MenuItem(
     title: 'UI Control',
     icon: Icons.abc_outlined,
     link: '/ui-control',

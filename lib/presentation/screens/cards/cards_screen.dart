@@ -54,7 +54,7 @@ class _CardsView extends StatelessWidget {
           const Divider(thickness: 1, color: Colors.blueGrey, height: 20),
 
           ...cards2.map(
-            (card) => CartView3(elevation: card.elevation, label: card.label),
+            (card) => _CardView1(elevation: card.elevation, label: card.label),
           ),
 
           const Divider(thickness: 1, color: Colors.blueGrey, height: 20),
