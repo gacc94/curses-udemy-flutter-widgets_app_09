@@ -15,28 +15,31 @@ final GoRouter router = GoRouter(
       path: '/buttons',
       name: ButtonsScreen.name,
       builder: (context, state) => const ButtonsScreen(),
-      // pageBuilder: (context, state) => CustomTransitionPage(
-      //   // key: state.pageKey,
-      //   child: const ButtonsScreen(),
-      //   transitionsBuilder: (context, animation, secondaryAnimation, child) {
-      //     if (Theme.of(context).platform == TargetPlatform.iOS) {
-      //       return SlideTransition(
-      //         position: Tween(
-      //           begin: const Offset(1, 0),
-      //           end: Offset.zero,
-      //         ).animate(animation),
-      //         child: child,
-      //       );
-      //     } else {
-      //       return FadeTransition(opacity: animation, child: child);
-      //     }
-      //   },
-      // ),
     ),
     GoRoute(
       path: '/cards',
       name: CardsScreen.name,
       builder: (context, state) => const CardsScreen(),
+    ),
+    GoRoute(
+      path: '/progress-indicators',
+      name: ProgressScreen.name,
+      builder: (context, state) => const ProgressScreen(),
+    ),
+    GoRoute(
+      path: '/snackbar',
+      name: SnackBarScreen.name,
+      builder: (context, state) => const SnackBarScreen(),
+    ),
+    GoRoute(
+      path: '/ui-control',
+      name: UiControlScreen.name,
+      builder: (context, state) => const UiControlScreen(),
+    ),
+    GoRoute(
+      path: '/infinite-scroll',
+      name: InfiniteScrollScreen.name,
+      builder: (context, state) => const InfiniteScrollScreen(),
     ),
   ],
 );

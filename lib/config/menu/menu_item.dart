@@ -27,4 +27,28 @@ final menuItems = [
     link: '/cards',
     subTitle: 'Cards',
   ),
+  MenuItem(
+    title: 'Progress Indicators',
+    icon: Icons.refresh_rounded,
+    link: '/progress-indicators',
+    subTitle: 'Progress Indicators',
+  ),
+  MenuItem(
+    title: 'Snackbar',
+    icon: Icons.notification_important,
+    link: '/snackbar',
+    subTitle: 'Snackbar',
+  ),
+  MenuItem(
+    title: 'UI Control',
+    icon: Icons.abc_outlined,
+    link: '/ui-control',
+    subTitle: 'UI Control',
+  ),
+  MenuItem(
+    title: 'Infinite Scroll',
+    icon: Icons.refresh_rounded,
+    link: '/infinite-scroll',
+    subTitle: 'Infinite Scroll',
+  ),
 ];
