@@ -18,3 +18,7 @@ samples, guidance on mobile development, and a full API reference.
 ## Running the app
 
 To run the app, navigate to the project directory and run the following command:
+
+## Demo
+
+![widgets_app_09](./assets/ss_01.png)

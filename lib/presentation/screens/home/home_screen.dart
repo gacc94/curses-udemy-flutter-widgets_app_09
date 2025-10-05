@@ -68,6 +68,7 @@ class _CustomTile extends StatelessWidget {
       trailing: Icon(Icons.arrow_forward_ios, color: theme),
       onTap: () {
         context.push(link);
+        // GoRouter.of(context).push(link);
       },
     );
   }
