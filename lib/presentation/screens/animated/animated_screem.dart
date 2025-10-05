@@ -25,7 +25,6 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
       final colors = [Colors.blue, Colors.red, Colors.green, Colors.yellow];
       _color = colors[random.nextInt(colors.length)];
       _borderRadius = random.nextDouble() * 100;
-
       _isAnimated = !_isAnimated;
     });
   }
@@ -35,14 +34,17 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text('Animated Screen')),
       body: Center(
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.easeInOut,
-          width: _width,
-          height: _height,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(_borderRadius),
-            color: _color,
+        child: GestureDetector(
+          onTap: () => _toggleAnimation(),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+            width: _width,
+            height: _height,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(_borderRadius),
+              color: _color,
+            ),
           ),
         ),
       ),
