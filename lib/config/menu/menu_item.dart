@@ -52,6 +52,12 @@ final menuItems = [
     subTitle: 'UI Control',
   ),
   MenuItem(
+    title: 'Tutorial',
+    icon: Icons.school_outlined,
+    link: '/tutorial',
+    subTitle: 'Tutorial',
+  ),
+  MenuItem(
     title: 'Infinite Scroll',
     icon: Icons.refresh_rounded,
     link: '/infinite-scroll',
