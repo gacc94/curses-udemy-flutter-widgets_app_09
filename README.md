@@ -21,4 +21,11 @@ To run the app, navigate to the project directory and run the following command:
 
 ## Demo
 
-![widgets_app_09](./assets/ss_03.png)
+<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-between">
+  <div style="flex: 1 1 50%">
+    <img src="./assets/ss_05.png" alt="widgets_app_09">
+  </div>
+  <div style="flex: 1 1 50%">
+    <img src="./assets/ss_04.png" alt="widgets_app_09">
+  </div>
+</div>
