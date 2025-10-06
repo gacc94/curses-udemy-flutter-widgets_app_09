@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:widgets_app_09/presentation/providers/theme_provider.dart';
 
 class ThemeChangerScreen extends ConsumerWidget {
@@ -10,7 +11,9 @@ class ThemeChangerScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context).colorScheme;
-    final bool isDarkMode = ref.watch(themeProvider);
+    final bool isDarkMode = ref.watch(
+      themeNotifierProvider.select((value) => value.isDarkMode),
+    );
     return Scaffold(
       appBar: AppBar(
         title: const Text('Theme Changer'),
@@ -21,16 +24,16 @@ class ThemeChangerScreen extends ConsumerWidget {
               isDarkMode ? Icons.dark_mode_outlined : Icons.light_mode_outlined,
             ),
             onPressed: () =>
-                ref.read(themeProvider.notifier).update((state) => !state),
+                ref.read(themeNotifierProvider.notifier).toggleDarkMode(),
           ),
         ],
       ),
-      body: _ThemeChangerView(),
+      body: const _ThemeChangerView(key: Key('theme_changer_view')),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => context.pop(),
         backgroundColor: theme.primary,
         elevation: 5,
-        child: Icon(Icons.add, color: theme.onPrimary),
+        child: Icon(Icons.arrow_back, color: theme.onPrimary),
       ),
     );
   }
@@ -42,16 +45,18 @@ class _ThemeChangerView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final colors = ref.watch(colorsProvider);
-    // final theme = Theme.of(context).colorScheme;
     return ListView.builder(
       itemCount: colors.length,
       itemBuilder: (context, index) {
         final color = colors[index];
         return RadioGroup(
-          groupValue: ref.watch(selectedColorProvider),
+          groupValue: ref.watch(
+            themeNotifierProvider.select((value) => value.selectedColor),
+          ),
           onChanged: (value) {
             if (value == null) return;
-            ref.read(selectedColorProvider.notifier).update((state) => value);
+            ref.read(themeNotifierProvider.notifier).setSelectedColor(value);
+            // context.pop();
           },
           child: RadioListTile(
             value: index,

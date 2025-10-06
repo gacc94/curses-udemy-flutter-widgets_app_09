@@ -16,19 +16,11 @@ const List<Color> colorList = [
 
 class AppTheme {
   final int selectedColor;
+  final bool isDarkMode;
 
-  AppTheme({required this.selectedColor})
-    : assert(
-        selectedColor >= 0 && selectedColor < colorList.length,
-        'Selected color is out of range',
-      );
+  AppTheme({required this.selectedColor, this.isDarkMode = false});
 
-  static ThemeData theme({
-    required int selectedColor,
-    bool centerTitle = false,
-    bool isDarkMode = false,
-  }) {
-    assert(selectedColor >= 0 && selectedColor < colorList.length);
+  ThemeData theme({bool centerTitle = false}) {
     return ThemeData(
       useMaterial3: true,
       brightness: isDarkMode ? Brightness.dark : Brightness.light,
