@@ -68,63 +68,68 @@ class _TutorialScreenState extends State<TutorialScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Stack(
-        children: [
-          PageView(
-            controller: _pageController,
-            physics: const BouncingScrollPhysics(),
-            children: slides
-                .map(
-                  (slide) => _Slide(
-                    title: slide.title,
-                    caption: slide.caption,
-                    imageUrl: slide.imageUrl,
-                  ),
-                )
-                .toList(),
-          ),
-
-          Positioned(
-            top: 30,
-            right: 30,
-            child: TextButton(
-              onPressed: () => context.go('/'),
-              child: Text('Skip'),
+      body: MediaQuery.removePadding(
+        context: context,
+        removeTop: true,
+        removeBottom: false,
+        child: Stack(
+          children: [
+            PageView(
+              controller: _pageController,
+              physics: const BouncingScrollPhysics(),
+              children: slides
+                  .map(
+                    (slide) => _Slide(
+                      title: slide.title,
+                      caption: slide.caption,
+                      imageUrl: slide.imageUrl,
+                    ),
+                  )
+                  .toList(),
             ),
-          ),
 
-          Positioned(
-            bottom: 30,
-            left: 30,
-            right: 30,
-            child: FilledButton(
-              style: FilledButton.styleFrom(
-                elevation: 5,
-                // shape: const StadiumBorder(
-                //   side: BorderSide(color: Colors.white),
-                // ),
-                // backgroundColor: Colors.blue,
-                foregroundColor: Colors.white,
+            Positioned(
+              top: 30,
+              right: 30,
+              child: TextButton(
+                onPressed: () => context.go('/'),
+                child: Text('Skip Page'),
               ),
-              onPressed: () {
-                if (endReached) {
-                  context.go('/');
-                } else {
-                  _pageController.nextPage(
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  );
-                }
-              },
-              child: endReached
-                  ? FadeInRight(
-                      duration: const Duration(milliseconds: 300),
-                      child: const Text('Finish'),
-                    )
-                  : const Text('Next'),
             ),
-          ),
-        ],
+
+            Positioned(
+              bottom: 60,
+              left: 30,
+              right: 30,
+              child: FilledButton(
+                style: FilledButton.styleFrom(
+                  elevation: 5,
+                  // shape: const StadiumBorder(
+                  //   side: BorderSide(color: Colors.white),
+                  // ),
+                  // backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
+                onPressed: () {
+                  if (endReached) {
+                    context.go('/');
+                  } else {
+                    _pageController.nextPage(
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  }
+                },
+                child: endReached
+                    ? FadeInRight(
+                        duration: const Duration(milliseconds: 300),
+                        child: const Text('Finish'),
+                      )
+                    : const Text('Next'),
+              ),
+            ),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => context.go('/'),
@@ -152,7 +157,7 @@ class _Slide extends StatelessWidget {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(imageUrl),
             const SizedBox(height: 30),

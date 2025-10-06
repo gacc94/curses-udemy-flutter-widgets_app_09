@@ -11,3 +11,5 @@ export 'infinite_scroll/infinite_scroll_screen.dart';
 export 'progress/progress_screen.dart';
 export 'snackbar/snacbar_screen.dart';
 export 'ui_control/ui_control_screen.dart';
+export 'counter/counter_screen.dart';
+export 'theme_changer/theme_changer_screen.dart';

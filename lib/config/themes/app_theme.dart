@@ -26,10 +26,12 @@ class AppTheme {
   static ThemeData theme({
     required int selectedColor,
     bool centerTitle = false,
+    bool isDarkMode = false,
   }) {
-    // assert(selectedColor >= 0 && selectedColor < colorList.length);
+    assert(selectedColor >= 0 && selectedColor < colorList.length);
     return ThemeData(
       useMaterial3: true,
+      brightness: isDarkMode ? Brightness.dark : Brightness.light,
       colorSchemeSeed: colorList[selectedColor],
       appBarTheme: AppBarTheme(
         backgroundColor: colorList[selectedColor],

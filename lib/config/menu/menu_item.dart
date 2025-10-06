@@ -16,6 +16,12 @@ class MenuItem {
 
 final menuItems = [
   MenuItem(
+    title: 'Theme Changer',
+    icon: Icons.color_lens_outlined,
+    link: '/theme-changer',
+    subTitle: 'Theme Changer',
+  ),
+  MenuItem(
     title: 'Buttons',
     icon: Icons.smart_button_outlined,
     link: '/buttons',
@@ -62,5 +68,11 @@ final menuItems = [
     icon: Icons.refresh_rounded,
     link: '/infinite-scroll',
     subTitle: 'Infinite Scroll',
+  ),
+  MenuItem(
+    title: 'Counter Riverpod',
+    icon: Icons.countertops,
+    link: '/counter-riverpod',
+    subTitle: 'Counter Riverpod',
   ),
 ];
